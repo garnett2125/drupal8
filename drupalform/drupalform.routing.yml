@@ -1,0 +1,14 @@
+drupalform.form:
+  path: '/drupal-example-form'
+  defaults:
+    _title: 'Example form'
+    _form: '\Drupal\drupalform\Form\ExampleForm'
+  requirements:
+    _access: 'TRUE'
+drupalform.formconfig:
+  path: '/drupal-example-form-config'
+  defaults:
+    _title: 'Example form'
+    _form: '\Drupal\drupalform\Form\ExampleFormConfig'
+  requirements:
+    _access: 'TRUE'

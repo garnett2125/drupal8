@@ -1,0 +1,4 @@
+name: My Module permission!
+type: module
+description: Defining permissions, Drupal 8 cookbook page 82
+core: 8.x

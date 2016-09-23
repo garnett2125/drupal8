@@ -1,0 +1,22 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function mymodule_install_install() {
+  // Set the site name.
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('name', 'Drupal 8 Cookbook!')
+    ->save();
+}
+
+/**
+ * Update "Contact Us" form to have a reply message.
+ * [ 88 ]
+ * Extending Drupal
+ */
+function mymodule_install_update_8002() {
+  $contact_form = \Drupal\contact\Entity\ContactForm::load('contactus');
+  $contact_form->setReply(t('Thank you for contacting us, we will reply shortly'));
+  $contact_form->save();
+}

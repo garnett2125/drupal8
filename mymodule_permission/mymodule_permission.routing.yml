@@ -1,0 +1,14 @@
+mymodule_permission.mypage:
+  path: '/mypagepermission'
+  defaults:
+    _controller: '\Drupal\mymodule_permission\Controller\MyPagePermissionController::customPage'
+    _title: 'My custom page'
+  requirements:
+    _permission: 'view mymodule_permission pages'
+mymodule_permission.mypagecustomaccess:
+  path: '/mypagecustomaccess'
+  defaults:
+    _controller: '\Drupal\mymodule_permission\Controller\MyPagePermissionController::customPage'
+    _title: 'My custom page'
+  requirements:
+    _custom_access: '\Drupal\mymodule_permission\Controller\MyPageCustomAccessController::access'

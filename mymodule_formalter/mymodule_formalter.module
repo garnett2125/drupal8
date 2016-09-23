@@ -1,0 +1,56 @@
+<?php
+
+/**
+* @file
+* Custom module that alters forms.
+*/
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ **/
+function mymodule_formalter_form_system_site_information_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Code to alter form or form state here
+  $form['site_phone'] = array(
+    '#type' => 'tel',
+    '#title' => t('Site phone'),
+    '#default_value' => Drupal::config('system.site')->get('phone'),
+  );
+  $form['#submit'][] = 'mymodule_formalter_system_site_information_phone_submit';
+  $form['#validate'][] = 'mymodule_formalter_system_site_information_phone_submit';
+
+  // TODO See if it works sometime ?
+  /*
+  // Add a validator.
+  $validators = $form_state->getValidateHandlers();
+  $validators[] = 'mymodule_formalter_system_site_information_phone_validate';
+  $form_state->setValidateHandlers($validators);
+  $validators = $form_state->getValidateHandlers();
+
+  // Add a submit.
+  $submit_handlers = $form_state->getSubmitHandlers();
+  $submit_handlers [] = 'mymodule_formalter_system_site_information_phone_submit';
+  $form_state->setSubmitHandlers($submit_handlers );
+  */
+}
+
+/**
+ * Form callback to validate data.
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function mymodule_formalter_system_site_information_phone_validate(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  dpm('tata');
+  return FALSE;
+}
+
+/**
+ * Form callback to save site_phone
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function mymodule_formalter_system_site_information_phone_submit(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $config = Drupal::configFactory()->getEditable('system.site');
+  $config->set('phone', $form_state->getValue('site_phone'))
+    ->save();
+  dpm('toto');
+}

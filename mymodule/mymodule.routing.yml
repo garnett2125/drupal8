@@ -1,0 +1,29 @@
+mymodule.mypage:
+  path: '/mypage'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::customPage'
+    _title: 'My custom page'
+  requirements:
+    _permission: 'access content'
+
+mymodule.cats:
+  path: '/cat/{name}'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::cats'
+  requirements:
+    _permission: 'access content'
+    name: '[a-zA-z]+'
+
+mymodule.node:
+  path: '/mymodulenode/{node}'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MyPageController::node'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+route_callbacks:
+ - '\Drupal\mymodule\Routing\CustomRoutes::routes'

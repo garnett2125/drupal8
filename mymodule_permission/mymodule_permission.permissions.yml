@@ -1,0 +1,7 @@
+view mymodule_permission pages:
+  title: 'View my module permission pages'
+  description: 'Allows users to view pages provided by My Module'
+
+# Define permission dynamicly.
+permission_callbacks:
+  - Drupal\mymodule_permission\MyModulePermissionPermissions::permissions
