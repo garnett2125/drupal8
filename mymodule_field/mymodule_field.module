@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function mymodule_field_field_info_alter(&$info) {
+  // Alter email field label.
+  $info['email']['label'] = t('E-mail address');
+}

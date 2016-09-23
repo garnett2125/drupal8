@@ -1,0 +1,4 @@
+name: My module field
+description: Custom module that creates a new field type
+type: module
+core: 8.x
