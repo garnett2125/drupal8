@@ -1,0 +1,7 @@
+drupalform.form:
+  path: '/drupal-use-plugin'
+  defaults:
+    _title: 'Example of plugin usage'
+    _form: '\Drupal\mymodule_plugin\Form\ConvertUnitsForm'
+  requirements:
+    _access: 'TRUE'
